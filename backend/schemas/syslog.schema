@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS model_upload_log;
+CREATE TABLE model_upload_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    model_name TEXT,
+    uploadtime TEXT, 
+    deletetime TEXT DEFAULT CURRENT_TIMESTAMP,
+    isactive INTEGER
+);
+
+DROP TABLE IF EXISTS service_access_log;
+CREATE TABLE service_access_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip TEXT,
+    accesstime TEXT,
+    uri TEXT,
+    responsetime TEXT,
+    isactive INTEGER
+);
+
+DROP TABLE IF EXISTS view_log;
+CREATE TABLE view_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip TEXT,
+    viewtime TEXT
+);
+
+DROP TABLE IF EXISTS models;
+CREATE TABLE models(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    modelname TEXT,
+    createtime TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatetime TEXT DEFAULT CURRENT_TIMESTAMP,
+    deletetime TEXT,
+    isactive INTEGER DEFAULT 1,
+    predicttioncnt INTEGER DEFAULT 0,
+    fraudpreditioncnt INTEGER DEFAULT 0
+);
