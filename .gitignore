@@ -133,3 +133,6 @@ dmypy.json
 
 # JS
 node_modules/
+
+backend/data
+backend/trained_models
