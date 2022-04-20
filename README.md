@@ -21,17 +21,126 @@ A list of Python/Javascript Files:
  
  
 ## How to Install and Run the Application:
- 
-Coming soon….
- 
+### Approach A: direct installation
+The complete application needs a python based backend server and a simple reactjs fronend server.
+
+[Nodejs](https://nodejs.org/en/download/) and Python runtime are required to run this application
+#### Frontend server installation
+1. Make sure your instance has [npm](https://www.npmjs.com/package/npm) installed
+2. Launch frontend server
+2.1 under the root(capstone-fraud-detection) folder level, firstly go to server folder or run `cd server`
+2.2 if using `npm`, run `npm start`
+#### Backend server installation
+We are using [Poetry](https://python-poetry.org/docs/) to manage the dependencies versins, but we also provided `requirements.txt` to help users to install dependencies without poetry
+1. run `cd backend` and `pip install -r requirements.txt`
+2. run `python server.py` to start the backend server
+#### SQLite Server loopup
+The sqlite is managed by backend server automatically. This section is the instruction about how you can directly communicate with database if you want to query the data or have a look at the table structures.
+1. At `root` level, `cd backend/schemas`
+2. Enter the syslog.db using `sqlite3 syslog.db`
+3. use `.tables` could show all available tables here
+syslog.schema contains all the schmas that our application used
+### Approach B: Containerlized installation
+#### install docker and docker-compose
+[docker setup tutorial](https://docs.docker.com/get-docker/)
+[docker-compose setup](https://docs.docker.com/compose/install/)
+#### use docker-compose to launch the container clusters
+Under root folder level, run `docker-compose build` to build all the images needed. The Dockerfile are located in each subfolder.
+After images built, run `docker-compose up` to start the cluster. (You can also run `docker-compose up -d` to start cluster in the backgroud)
+If you want to stop the application, run `docker-compose down` to stop tasks.
 ## Best Detection Model: (model structure explained with graph)
 Coming Soon….
  
  
-## Dashboard:  (screenshot of how the application dashboard will look like)
-Coming Soon…
- 
- 
+## Dashboard:
+![dashboard](./assets/dashboard.png)
+Our dashboard design included a timer, real time server status card, donut chart to indicate total authentic vs. fraud cases counts. The second row are composed of a stacked bar chart to present the information of each models historical data and a world map plot to indicate users distribution. 
+
+## Models
+![model_page](./assets/modelpage.png)
+Model provides the service to let user upload new model they want to use to predict trasaction and our application will utilize our data pipeline to automatically load training data and train the model and print out the validation scores. The model now is constrained as the model which extends from sklearn. (We need to call predict, score methods)
+For the later on development, the model status tracking could be added to this page and also present the trainig results to this page.
+## APIs
+<table> 
+<tr>
+<th>API</th>
+<th>Parameters</th>
+<th>Description</th>
+<th>Examples</th>
+<th>Example Result</th>
+</tr>
+<tr>
+<td>/search_model</td>
+<td>model</td>
+<td>The name of the model, the modelname is case insensitive</td>
+<td>localhost:5000/search_model?model=decisiontree</td>
+<td>
+<pre>
+{
+  "result": [
+    [
+      17, 
+      "desiciontree", 
+      0
+    ], 
+    [
+      5, 
+      "desiciontree", 
+      1
+    ]
+  ]
+}
+</pre>
+</td>
+</tr>
+<tr>
+<td>/summary</td>
+<td>-</td>
+<td>Get the summary of prediction data, the response will include counts of authentic result and fraud result</td>
+<td>http://localhost:5000/summary</td>
+<td><pre>
+{
+  "auth_cnt": 19, 
+  "fraud_cnt": 78
+}
+</pre></td>
+</tr>
+<tr>
+<td>/usersgeo</td>
+<td>-</td>
+<td>get the user geographical data in the format of [longitude, latitude]</td>
+<td>http://localhost:5000/usersgeo</td>
+<td><pre>
+{
+  "result": [
+    [
+      -77.0, 
+      38.8833
+    ], 
+    [
+      -77.0, 
+      38.8833
+    ], 
+    ...
+  ]
+}
+</pre></td>
+</tr>
+<tr>
+<td>/prediction</td>
+<td>data, <br> model</td>
+<td>pass in the data and modelname, the server will return back the result predicted by designated model. If the model is not passed in, the backend server will return results by all models in database. The data will be passed in the request body</td>
+<td><img src="./assets/example_prediction.png" alt="example_prediction"/></td>
+<td><pre>
+{
+	"randomforest": 0,
+	"desiciontree": 1,
+	"xgbooster": 0
+}
+</pre></td>
+</tr>
+</table>
+
 ## Possible approaches to do in the future work/Future Plan:
  
 Coming soon….

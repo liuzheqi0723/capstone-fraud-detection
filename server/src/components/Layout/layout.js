@@ -55,13 +55,12 @@ class SiderLayout extends React.Component {
             style={{
               margin: '24px 16px',
               padding: 24,
-              minHeight: 280,
             }}
           >
             <Routes>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/models" element={<Models />} />
+                <Route path="/dashboard" style={{ height: "100%" }} element={<Dashboard />} />
+                <Route path="/" style={{ height: "100%" }} element={<Dashboard />} />
+                <Route path="/models" style={{ height: "100%" }} element={<Models />} />
             </Routes>
           </Content>
         </Layout>

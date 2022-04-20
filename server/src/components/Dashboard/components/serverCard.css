@@ -1,0 +1,11 @@
+th{
+    text-align: left;
+}
+
+td{
+    text-align: right;
+}
+
+table, tr{
+    width: 100%;
+}
