@@ -6,6 +6,8 @@ The dataset we are going to use describes the features of  online transactions m
  
 The dataset is provided by Vesta Corporation, which is the forerunner in guaranteed e-commerce payment solutions. And can be found on [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection/overview).
  
+
+
 ## Project Description:
 ![title](./assets/structure.png)
 
@@ -13,7 +15,7 @@ Our capstone project focuses on building a full-stack fraud detection applicatio
  
 A list of Python/Javascript Files:
 1. DataCleaning.py
-2. EDA.py:  exploratory analysis and plots of data.
+2. 2_EDA_code.py:  exploratory analysis and plots of data.
 3. Model Building—SupervisedLearning.py: Python program of supervised learning models.
 4. Model Building— UnsupervisedLeraning.py: Python program of unsupervised learning models.
 5. Model Building— DeepLearning.py: Python program of deep learning models.
