@@ -125,6 +125,8 @@ plt.xlim([0, 30])
 pca15=PCA(n_components=15)
 
 score_PCA=pca15.fit_transform(X_scaled)
+X_pca=pd.DataFrame(score_PCA)
+
 
 """##K-means clustering into 2 clusters(fraud and nonfraud)  with PCA results"""
 
