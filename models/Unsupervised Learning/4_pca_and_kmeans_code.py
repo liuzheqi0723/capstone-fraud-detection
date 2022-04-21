@@ -36,6 +36,8 @@ for c in df_temp.index.tolist():
           print(c )
 X=X.drop(columns=['dist1', 'D11'], inplace=False)
 
+
+
 """## Create encoding for categorical vairables
 
 """
@@ -92,12 +94,15 @@ imp_preprocessor = ColumnTransformer(transformers=[('imp_mean', imp_mean, cols_f
 imp_preprocessor.fit(X)
 X_train = imp_preprocessor.transform(X)
 
+
+
 """##create a dataframe df_PCA that have Nan filled and encodings created for categorical variables"""
 
 # create a dataframe to be used for PCA and unsupervised learning
 df_PCA = pd.DataFrame(imp_preprocessor .fit_transform(X), columns=X.columns, index=X.index)
 
 y_train=y
+
 
 """# k-means with PCA
 
@@ -216,6 +221,7 @@ fig = px.scatter_3d(PCA_columns_3clus , x='component 1', y='component 2', z='com
                     height=800)                 
 #fig.update_layout(showlegend=False)
 fig.show()
+
 
 """##Compare Silhouette score and Davies Bouldin Score for clusters of 2 and 3"""
 
