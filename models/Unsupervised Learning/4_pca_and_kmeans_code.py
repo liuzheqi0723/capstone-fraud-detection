@@ -217,9 +217,9 @@ fig = px.scatter_3d(PCA_columns_3clus , x='component 1', y='component 2', z='com
 #fig.update_layout(showlegend=False)
 fig.show()
 
-"""##Compare Silhouette score and Davies Bouldin Score for clusters of 2 to 7"""
+"""##Compare Silhouette score and Davies Bouldin Score for clusters of 2 and 3"""
 
-for num in range(2,8):
+for num in range(2,4):
     kmeans = KMeans(n_clusters=num)
     kmeans.fit_predict(score_PCA)
     assigning_clusters = kmeans.labels_    
