@@ -15,7 +15,7 @@ Our capstone project focuses on building a full-stack fraud detection applicatio
  
 A list of Python/Javascript Files:
 1. DataCleaning.py
-2. 2_EDA_code_.py:  exploratory data analysis and plots of data.
+2. 2_EDA_code_.py:  Exploratory data analysis 
 3. Model Building—SupervisedLearning.py: Python program of supervised learning models.
 4. 4_pca_and_kmeans_code.py: Python program of PCA and K-Means clustering models.
 5. 5_hierarchical_clustering_and_dbscan_code.py: Python program of hierarchical clustering and DBSCAN clustering models.
