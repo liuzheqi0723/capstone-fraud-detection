@@ -4,3 +4,7 @@ Data for 4_PCA_and_KMeans_code.py:
 --data for y can also be found at https://drive.google.com/file/d/1tnOR29glmZdJ73NVL3ehNEltRqYJrZ5e/view?usp=sharing
 
 Data for 5_Hierarchical_and_DBSCAN_code.py
+--used dataframes df_pca_kmeans and X_pca from 4_PCA_and_KMeans_code.py
+--data for df_pca_kmeans can also be found at https://drive.google.com/file/d/1ufg1l7wf8yHRymiXOe7U9ZVdfcDcW19y/view?usp=sharing
+--data for X_pca can also be found at https://drive.google.com/file/d/16_jgfBTZIbKv22o0xeQYazm2ZAJvxkNt/view?usp=sharing
+
