@@ -2,10 +2,11 @@
  
 **Dataset**: [IEEE-CIS Fraud Detection on Kaggle](https://www.kaggle.com/c/ieee-fraud-detection)
 
-The dataset we are going to use describes the features of  online transactions made by  credit/debit cards. The data is broken into two files: identity and transaction, which are joined by TransactionID.  The identity file describes the features of a transaction, like: time, amount, product, address, and etc.. The identity file stores records for network connection information (IP, ISP, Proxy, etc) and digital signature associated with transactions.
- 
-The dataset is provided by Vesta Corporation, which is the forerunner in guaranteed e-commerce payment solutions. And can be found on [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection/overview).
- 
+The dataset we used is provided by Vesta Corporation, which is the forerunner in guaranteed e-commerce payment solutions. And can be found on [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection/overview).
+
+In our project we used two CSV files in the dataset:
+1. train_transaction.csv: This file contains variables that are transaction information, such as transaction amount, time delta, device time, etc.
+2. train_identity.csv:  This file contains vairables that are identity informaion, such as network connection information and digital signature associated with transactions.
 
 
 ## Project Description:
