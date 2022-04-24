@@ -1,4 +1,4 @@
-#EDA used datasets (clean_train_id and clean_train_trans) generated from 1_Datasets_Understanding_&_Clean.ipynb 
+#EDA used dataframes (clean_train_id and clean_train_trans) generated from 1_Datasets_Understanding_&_Clean.ipynb 
 
 The datasets are very large, and can be viewed or download below:
 
