@@ -15,12 +15,13 @@ In our project we used two CSV files in the dataset:
 Our capstone project focuses on building a full-stack fraud detection application from end to end. The detection engine will predict real-time credit card transactions and make a low-latency prediction. This project explores the connections between different stages throughout a data science project including data collection, preprocessing, modeling, and model deployment. Moreover, we are planning to integrate the fraud prediction product with web application development and provide a web-based interactive console to manage the whole pipeline. 
  
 A list of Python/Javascript Files:
-1. DataCleaning.py
+1 .1_Datasets Understanding & Clean.ipynb (model folder)
 2. 2_EDA_code_.py:  Exploratory data analysis (EDA folder)
-3. Model Building—SupervisedLearning.py: Python program of supervised learning models.(model folder)
+3. 3_Join datasets with further data clean.ipynb (model folder)
 4. 4_pca_and_kmeans_code.py: Python program of PCA and K-Means clustering models.  (model folder)
 5. 5_hierarchical_clustering_and_dbscan_code.py: Python program of hierarchical clustering and DBSCAN clustering models. (model folder)
-6. Full-stack Development (Javascript)
+6. 6_SML with non dummy.ipynb (model folder)
+7. Full-stack Development (Javascript)
  
  
 ## How to Install and Run the Application:
