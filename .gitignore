@@ -136,3 +136,4 @@ node_modules/
 
 backend/data
 backend/trained_models
+*.db
