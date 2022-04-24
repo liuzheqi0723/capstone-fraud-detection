@@ -47,7 +47,6 @@ class SysCard extends React.Component {
                     {serverStatus: <SmileTwoTone twoToneColor='#34eb34' style={{ fontSize: '32px' }}/>}
                 )
             }
-        console.log(this.state);
         }).catch(err => {
             this.setState(
                 {serverStatus: <FrownTwoTone twoToneColor='#eb3d34' style={{ fontSize: '32px' }}/>}

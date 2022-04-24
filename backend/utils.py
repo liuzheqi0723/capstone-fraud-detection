@@ -3,7 +3,7 @@ import numpy as np
 import sqlite3
 import requests
 from flask import g
-
+TRUNCATE_SIZE = 1000
 DATABASE = './schemas/syslog.db'
 def get_db():
     db = getattr(g, '_database', None)
@@ -21,12 +21,14 @@ def train_model(filename):
     # set the model status to 1 in sqlite
     conn = sqlite3.connect(DATABASE)
     conn.execute(
-        "UPDATE TABLE models SET isactive = 1"
+        f"INSERT INTO models (model_name, isactive) VALUES('{filename.split('.')[0]}', 1)"
     )
+    conn.commit()
+    conn.close()
 
 def train(model):
-    X_train = np.load('data/X_train.npy')
-    y_train = np.load('data/y_train.npy')
+    X_train = np.load('data/X_train.npy')[:TRUNCATE_SIZE]
+    y_train = np.load('data/y_train.npy')[:TRUNCATE_SIZE]
     X_test = np.load('data/X_test.npy')
     y_test = np.load('data/y_test.npy')
     print("training the new mode...")

@@ -57,12 +57,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        conn = get_db()
-        cmd = f"INSERT INTO models (modelname) VALUES('{filename.split('.')[0]}')"
         train_model(filename)
-        conn.execute(cmd)
-        conn.commit()
-        conn.close()
     return "OK"
 
 @app.route('/search_model', methods=['GET'])
@@ -79,18 +74,18 @@ def search_model():
         model_id = get_model(args.get('model'))
         if model_id:
             res['result'] = conn.execute(
-            f"""SELECT count(*), m.model_name, pred.result 
-            FROM prediction_log pred 
-            LEFT JOIN models m 
+            f"""SELECT count(*), m.model_name, COALESCE(pred.result, 0) 
+            FROM models m 
+            LEFT OUTER JOIN prediction_log pred
             ON pred.model_id = m.id 
             WHERE m.isactive = 1 and m.id = {model_id}
             GROUP BY m.model_name, pred.result"""
         ).fetchall()
     else:
         res['result'] = conn.execute(
-            f"""SELECT count(*), m.model_name, pred.result 
-            FROM prediction_log pred 
-            LEFT JOIN models m 
+            f"""SELECT count(*), m.model_name, COALESCE(pred.result, 0) 
+            FROM models m 
+            LEFT OUTER JOIN prediction_log pred
             ON pred.model_id = m.id 
             WHERE m.isactive = 1
             GROUP BY m.model_name, pred.result"""
@@ -108,6 +103,7 @@ def search_model():
     conn.execute(cmd)
     conn.commit()
     conn.close()
+    print(res)
     return res
 
 @app.route('/server_time', methods=['GET'])

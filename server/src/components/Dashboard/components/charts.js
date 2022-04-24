@@ -104,7 +104,21 @@ import ApexCharts from "react-apexcharts";
                   prediction.data[model_data[1]] = model_data[0]
                 }
             }
-
+            console.log(prediction, "ddddddd");
+            console.log(fraud, "ddddddd");
+            if(Object.keys(prediction.data).length > Object.keys(fraud.data).length){
+              for(const key of Object.keys(prediction.data)){
+                if(!(key in fraud)){
+                  fraud.data[key] = 0
+                }
+              }
+            }else{
+              for(const key of Object.keys(fraud.data)){
+                if(!(key in prediction)){
+                  prediction.data[key] = 0
+                }
+              }
+            }
             prediction.data = Object.keys(prediction.data).sort().reduce(
               (obj, key) => { 
                 obj[key] = prediction.data[key]; 
