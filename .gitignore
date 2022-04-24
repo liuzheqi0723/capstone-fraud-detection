@@ -135,5 +135,6 @@ dmypy.json
 node_modules/
 
 backend/data
+backend/saved_models
 backend/trained_models
 *.db
