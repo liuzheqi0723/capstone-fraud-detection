@@ -1,0 +1,9 @@
+INSERT INTO models(model_name, isactive) VALUES(
+    'desiciontree', 1
+);
+INSERT INTO models(model_name, isactive) VALUES(
+    'randomforest', 1
+);
+INSERT INTO models(model_name, isactive) VALUES(
+    'xgbooster', 1
+);
